@@ -25,7 +25,10 @@ namespace Assignment_3
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/Site.css"));
         }
     }
 }
