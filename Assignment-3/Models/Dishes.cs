@@ -8,7 +8,7 @@ namespace Assignment_3.Models
     public class Dishes
     {
         // Dish Id primary Key
-        public int DishID { get; set;}
+        public int Id { get; set;}
         // Specifics food or drink 
         public string Type { get; set; }
         // to display full sized image
