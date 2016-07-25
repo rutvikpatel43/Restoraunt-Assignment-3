@@ -34,7 +34,7 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	background-color: #FBF9EF;
-	padding: 60px 6% 0px 6%;
+	padding: 10%;
 }
 
 #container
@@ -341,4 +341,16 @@ tr:hover
     padding-top:0.05%;
     font-style:italic;
     font-size:250%;
+}
+#Food {
+     color:cornsilk;
+  background:no-repeat;
+
+  background-image: url('../Assets/images/Traditional-Indian-Food.jpg');
+}
+#Drink {
+        color:lime;
+    background:no-repeat;
+    background-image: url('../Assets/images/Drinks-1.png');
+    
 }
