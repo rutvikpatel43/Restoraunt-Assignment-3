@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Assignment_3.Models.Dishes>
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 jumbotron">
+        <img src="~/Content/ThumbImages/@item.ThumbnailUrl" alt="No Preview Avaiable" />
+        <p>@item.DishName</p>
+        <p>$ @item.price</p>
+        <p>@item.Description.Substring(1,10)....</p>
+    </div>
+}
