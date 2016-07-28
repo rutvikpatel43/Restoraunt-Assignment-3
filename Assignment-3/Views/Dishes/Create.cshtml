@@ -1,18 +1,17 @@
 ﻿@model Assignment_3.Models.Dishes
 
 @{
-    ViewBag.Title = "Create ";
+    ViewBag.Title = "Create Dish";
 }
 
-<h2>Create</h2>
 
 
-@using (Html.BeginForm("Create", "Dishes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Dishes", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     @ViewBag.Message;
     <div class="form-horizontal">
-        <h4>Dish</h4>
+        <h4 id="Title">Create Dish</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -83,8 +82,8 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+   <a href="@Url.Action("Index", "Dishes" )" class = "btn btn-danger">Back to Dishes</a> 
+      </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
