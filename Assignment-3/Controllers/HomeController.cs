@@ -11,7 +11,8 @@ namespace Assignment_3.Controllers
         DishesModel db = new DishesModel();
         public ActionResult Index()
         {
-            return View();
+            List<String> dish = db.Dish.Select(w => w.Type).Distinct().ToList();
+            return View(dish);
         }
 
         public ActionResult About()
@@ -20,6 +21,14 @@ namespace Assignment_3.Controllers
 
             return View();
         }
+        public ActionResult Item(string dishName)
+        {
+            Dishes dish = (from u in db.Dish
+                           where u.DishName == dishName
+                           select u).FirstOrDefault();
+            return View(dish);
+        }
+
         public ActionResult Menu(string type)
         {
             List<Dishes> dish = db.Dish.Where(w => w.Type == type).ToList();

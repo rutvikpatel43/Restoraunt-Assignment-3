@@ -1,16 +1,29 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "Index";
 }
 
-<div id="Food" class="jumbotron">
-    <h1>Food</h1>
-    <p class="lead">
-        Ever tried Gujarati food. Try our Gujarati tali for $15. Thali has 5 different Veggies, Roti, Daal, Papad, Fries served with love.</p>
-    <p><a href="http://asp.net" class="btn btn-warning btn-lg">Menu</a></p>
-</div>
-<div id="Drink" class="jumbotron">
-    <h1>Drink</h1>
-    <p class="lead">Get some rest from this heat. Try our smoothies, juices, drink.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Drink</a></p>
-</div>
 
+<h2> Menu </h2>
+@foreach (string item in Model)
+{
+    if (@item == "Starter")
+    {
+        <div class="col-md-4">
+            <img src="~/Assets/images/Drinks-1.png" height="500px" width="700px"/>
+            <p class="content">@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
+        </div>
+    }
+    else if (@item == "MainCourse")
+    {
+        <div class="col-md-4">
+            <p class="content">@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-4">
+            <p class="content">@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
+        </div>
+    }
+}

@@ -66,59 +66,36 @@ namespace Assignment_3.Controllers
                     Directory.CreateDirectory(Server.MapPath(imagePath));
                     Directory.CreateDirectory(Server.MapPath(ThumbnailimagePath));
                 }
-                
+                var dish = db.Dish.Count(w => w.DishName.Equals(dishes.DishName));
+                if (dish==0)
+                {
                     photo = WebImage.GetImageFromRequest();
                     newFileName = Guid.NewGuid().ToString() + "_" +
                     Path.GetFileName(photo.FileName);
                     //imagePath = "~/Content/OrignalImages/" + newFileName;
-                    photo.Save(Path.Combine(Server.MapPath(imagePath),newFileName));
+                    photo.Save(Path.Combine(Server.MapPath(imagePath), newFileName));
                     dishes.ImageUrl = newFileName;
                     newFileName = Guid.NewGuid().ToString() + "_" +
                     Path.GetFileName(photo.FileName);
                     photo.Resize(80, 80, false, false);
                     photo.Save(Path.Combine(Server.MapPath(ThumbnailimagePath), newFileName));
                     dishes.ThumbnailUrl = newFileName;
+                    db.Dish.Add(dishes);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Message = "Dish Name already Exist";
+                }
                 
-                db.Dish.Add(dishes);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+               
             }
 
             return View(dishes);
         }
-                   /*
-                    //Save image to file
-                    var filename = image.FileName;
-                    var filePathOriginal = Server.MapPath("/Content/Uploads/Originals");
-                    var filePathThumbnail = Server.MapPath("/Content/Uploads/Thumbnails");
-                    string savedFileName = Path.Combine(filePathOriginal, filename);
-                    image.SaveAs(savedFileName);
+                 
 
-                    //Read image back from file and create thumbnail from it
-                    var imageFile = Path.Combine(Server.MapPath("~/Content/Uploads/Originals"), filename);
-                    using (var srcImage = Image.FromFile(imageFile))
-                    using (var newImage = new Bitmap(100, 100))
-                    using (var graphics = Graphics.FromImage(newImage))
-                    using (var stream = new MemoryStream())
-                    {
-                        graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                        graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                        graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                        graphics.DrawImage(srcImage, new Rectangle(0, 0, 100, 100));
-                        newImage.Save(stream, ImageFormat.Png);
-                        var thumbNew = File(stream.ToArray(), "image/png");
-                        artwork.ArtworkThumbnail = thumbNew.FileContents;
-                    }
-                }
-
-                //Save model object to database
-                db.ArtWorks.Add(artwork);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(artwork);
-        }*/
         // GET: Dishes/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {

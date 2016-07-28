@@ -1,0 +1,78 @@
+﻿@model Assignment_3.Models.Dishes
+
+@{
+    ViewBag.Title = @Model.DishName;
+}
+
+<h2>Item</h2>
+
+<div>
+    <h1>Dishes</h1>
+    <hr />
+    <div class="col-md-1">
+        @Model.DishName;
+    </div>
+    <div class="col-md-1">
+        <img src="~/Content/OrignalImages/@Model.ImageUrl" alt="Cannot load image"/>
+    </div>
+    <div class="col-md-3">
+        @Model.price;
+    </div>
+    <div class="col-md-3">
+        @Model.Description
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThumbnailUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThumbnailUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DishName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DishName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

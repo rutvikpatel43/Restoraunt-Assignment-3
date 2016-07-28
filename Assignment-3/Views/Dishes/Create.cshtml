@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Create", "Dishes", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("Create", "Dishes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+    @ViewBag.Message;
     <div class="form-horizontal">
         <h4>Dish</h4>
         <hr />
@@ -18,7 +18,26 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                @{ 
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Starter",
+                        Value = "Starter"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Main Course",
+                        Value = "Main Course",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "After Meal",
+                        Value = "After Meal"
+                    });
+                }
+            @Html.DropDownListFor(model => model.Type, listItems, "-- Select Type --",htmlAttributes: new { @class = "control-label col-md-2" })
                 @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
         </div>
