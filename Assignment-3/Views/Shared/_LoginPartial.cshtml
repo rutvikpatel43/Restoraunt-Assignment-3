@@ -1,4 +1,9 @@
-﻿@using Microsoft.AspNet.Identity
+﻿<!--
+Authors: Rutvik Patel,Himanshu Patel
+    This page is displayed when we request login
+-->
+
+@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))

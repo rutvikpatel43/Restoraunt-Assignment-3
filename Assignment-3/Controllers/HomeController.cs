@@ -4,6 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Assignment_3.Models;
+
+/**
+ * Authors:Rutvik Patel, Himanshu Patel
+ * This page deals with view details the dish to the end user
+ * It has view for each of the function
+ */
+
 namespace Assignment_3.Controllers
 {
     public class HomeController : Controller

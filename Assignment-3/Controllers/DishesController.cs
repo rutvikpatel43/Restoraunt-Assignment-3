@@ -14,8 +14,14 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Web.Helpers;
 
+/**
+ * Authors:Rutvik Patel, Himanshu Patel
+ * This page deals with create, update, delete of the dish
+ * It has view for each of the function
+ */
 namespace Assignment_3.Controllers
 {
+    [Authorize]
     public class DishesController : Controller
     {
         private DishesModel db = new DishesModel();

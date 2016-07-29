@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿<!--
+    
+Authors: Rutvik Patel, Himanshu Pate
+    This Page is the basic layout page for our restraunt site.
+     at the Symbols are for the razor tag
+-->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahara Restraunt</title>
+    <title>Sahara Restraunt - @ViewBag.title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -23,7 +29,7 @@
                 <p id="Call" class="nav navbar-nav"><i class="fa fa-phone" aria-hidden="true"></i> Call Now:705-222-22222 </p>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Gallery", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
                     @Html.Partial("_LoginPartial")
@@ -36,7 +42,7 @@
         <br />
         <div>
             <footer>
-                <p>&copy; @DateTime.Now.Year - Patel's Restrauant</p>
+                <p>&copy; @DateTime.Now.Year - SAHARA Restrauant- One Cannot think well, work well, sleep well. If one has not dined well.</p>
             </footer>
         </div>
     </div>
