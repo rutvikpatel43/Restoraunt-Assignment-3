@@ -24,18 +24,7 @@ p .content{
     padding:0 0 0 10%;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
-{
-	margin: 0px;
-	padding: 0px;
-	border: none;
-}
 .navbar-default .navbar-nav>li>a{
     color:brown;
     padding-top: 15%;
@@ -117,17 +106,10 @@ ul#navlist li:first-child a
 	border: none;
 }
 
-ul#navlist li a:hover
-{
-	color: #F6855E;
-}
+
 
 /********************* End top navigation ***************************/
 
-p
-{
-	margin-bottom: 15px;
-}
 
 #header h1 a, h3 em
 {
@@ -136,21 +118,21 @@ p
 
 a:link, a:visited
 {
-	color: #F6855E;
+	color:brown;
 	text-decoration: none;
 	font-weight: bold;
 }
 
 a:hover
 {
-	color: #333333;
+	color:brown;
 	text-decoration: none;
 	font-weight: bold;
 }
 
 a:active
 {
-	color: #006633;
+	color: brown;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -175,6 +157,6 @@ a:active
 .validation-summary-valid {
     display: none;
 }
-#Image-Tab{
+.row>Image-Tab{
     padding:10px;
 }
