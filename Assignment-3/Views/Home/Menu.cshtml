@@ -6,14 +6,26 @@
 
 <h2>Menu</h2>
 
+<div class="row">
 
-
-@foreach (var item in Model)
-{
-    <div class="col-md-4 jumbotron">
-        <img src="~/Content/ThumbImages/@item.ThumbnailUrl" alt="No Preview Avaiable" />
-        <p>@item.DishName</p>
-        <p>$ @item.price</p>
-        <p>@item.Description</p>
-    </div>
-}
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 jumbotron">
+            <img src="~/Content/ThumbImages/@item.ThumbnailUrl" alt="No Preview Avaiable" />
+            <br />
+            <p><a href="@Url.Action("Item","Home",new { dishName=@item.DishName})" class="btn btn-primary">@item.DishName</a></p>
+            <p>$ @item.price</p>
+            @if (@item.Description.Length > 40)
+            {
+                <p>@item.Description.Substring(0, 40)</p>
+            }
+            else
+            {
+                <p>@item.Description</p>
+            }
+        </div>
+    }
+</div>
+<div>
+    <a href="@Url.Action("Index","Home")" class="btn btn-primary">Back</a>
+</div>

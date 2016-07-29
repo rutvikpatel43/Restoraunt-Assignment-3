@@ -1,5 +1,5 @@
 ﻿body{
-    padding-top:10%
+    padding-top:5%
 }
 p .content{
     color:maroon;
@@ -13,6 +13,17 @@ p .content{
    
     padding-left:45%;
 }
+#CenterText{
+    padding-left:40%;
+    padding-right:40%;
+}
+#Image-Tab img{
+    padding:20px;
+}
+#Image-Tab p{
+    padding:0 0 0 10%;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -163,4 +174,7 @@ a:active
 
 .validation-summary-valid {
     display: none;
+}
+#Image-Tab{
+    padding:10px;
 }

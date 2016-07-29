@@ -4,75 +4,22 @@
     ViewBag.Title = @Model.DishName;
 }
 
-<h2>Item</h2>
+
 
 <div>
-    <h1>Dishes</h1>
-    <hr />
-    <div class="col-md-1">
-        @Model.DishName;
+    <div>
+        <h3 id="CenterText">Dish Name :@Model.DishName</h3>
     </div>
-    <div class="col-md-1">
+    <div>
         <img src="~/Content/OrignalImages/@Model.ImageUrl" alt="Cannot load image"/>
     </div>
-    <div class="col-md-3">
-        @Model.price;
+    <div>
+        <h2>$ @Model.price</h2>
     </div>
-    <div class="col-md-3">
-        @Model.Description
+    <div>
+        <h5>Description: @Model.Description</h5>
     </div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ThumbnailUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThumbnailUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DishName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DishName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-
-    </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Menu","Home",new { type=Model.Type})" class="btn btn-default btn-lg">Back to Menu</a>
 </p>

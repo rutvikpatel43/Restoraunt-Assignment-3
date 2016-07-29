@@ -5,25 +5,29 @@
 
 
 <h2> Menu </h2>
-@foreach (string item in Model)
-{
-    if (@item == "Starter")
+<div class="row">
+    @foreach (string item in Model)
     {
-        <div class="col-md-4">
-            <img src="~/Assets/images/Drinks-1.png" height="500px" width="700px"/>
-            <p class="content">@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
-        </div>
+        if (@item == "Starter")
+        {
+            <div class="col-md-4" id="Image-Tab">
+                <img src="~/Assets/images/starters-main.jpg" height="400px" width="400px" />
+                <p>@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
+            </div>
+        }
+        else if (@item == "Main Course")
+        {
+            <div class="col-md-4" id="Image-Tab">
+                <img src="~/Assets/images/veggy-350x300.jpg" height="400px" width="400px" />
+                <p>@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-4" id="Image-Tab">
+                <img src="~/Assets/images/54f0f9714b715_-_oreo-pancakes-lgn-65801826.jpg" height="400px" width="400px" />
+                <p>@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
+            </div>
+        }
     }
-    else if (@item == "MainCourse")
-    {
-        <div class="col-md-4">
-            <p class="content">@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
-        </div>
-    }
-    else
-    {
-        <div class="col-md-4">
-            <p class="content">@Html.ActionLink(@item.ToString(), "Menu", new { Controller = "Home", type = @item.ToString() })</p>
-        </div>
-    }
-}
+</div>
